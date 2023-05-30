@@ -1,4 +1,3 @@
-import 'package:custom_theme_setup/constants/themes.dart';
 import 'package:custom_theme_setup/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,11 +18,11 @@ class CustomThemeSetUp extends StatelessWidget {
           return BlocBuilder<ThemeBloc, ThemeState>(
             buildWhen: (previous, current) =>
                 previous.status != current.status ||
-                previous.currentThemeColor != current.currentThemeColor,
+                previous.currentTheme != current.currentTheme,
             builder: (context, state) {
               return MaterialApp(
                 title: 'Flutter Theme Setup Demo',
-                theme: Themes.darkTheme,
+                theme: state.currentTheme,
                 home: const HomeScreen(),
               );
             },

@@ -3,22 +3,22 @@ part of 'theme_bloc.dart';
 class ThemeState extends Equatable {
   const ThemeState({
     this.status = Status.initial,
-    this.currentThemeColor = AppColors.dark,
+    required this.currentTheme,
     this.errorMessage = '',
   });
 
   final Status status;
-  final Color currentThemeColor;
+  final ThemeData currentTheme;
   final String errorMessage;
 
   ThemeState copyWith({
     Status? status,
-    Color? currentThemeColor,
+    ThemeData? currentTheme,
     String? errorMessage,
   }) {
     return ThemeState(
       status: status ?? this.status,
-      currentThemeColor: currentThemeColor ?? this.currentThemeColor,
+      currentTheme: currentTheme ?? this.currentTheme,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
@@ -26,7 +26,7 @@ class ThemeState extends Equatable {
   @override
   List<Object> get props => [
         status,
-        currentThemeColor,
+        currentTheme,
         errorMessage,
       ];
 }

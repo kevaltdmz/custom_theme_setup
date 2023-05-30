@@ -1,5 +1,7 @@
+import 'package:custom_theme_setup/blocs/theme_bloc/theme_bloc.dart';
 import 'package:custom_theme_setup/constants/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class BuildCircleForThemeSelection extends StatelessWidget {
@@ -13,9 +15,15 @@ class BuildCircleForThemeSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
         debugPrint('Button is tapped');
-        Themes.changeTheme(themeColor: themeColor);
+        var useSelectedThemeData =
+            await Themes.changeTheme(themeColor: themeColor);
+        context.read<ThemeBloc>().add(
+              ChangeThemeRequested(
+                theme: useSelectedThemeData,
+              ),
+            );
       },
       child: CircleAvatar(
         backgroundColor: themeColor,

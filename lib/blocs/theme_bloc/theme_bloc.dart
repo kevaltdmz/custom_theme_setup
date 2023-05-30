@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:custom_theme_setup/constants/app_colors.dart';
 import 'package:custom_theme_setup/constants/status_constants.dart';
+import 'package:custom_theme_setup/constants/themes.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(const ThemeState()) {
+  ThemeBloc() : super(ThemeState(currentTheme: Themes.darkTheme)) {
     on<ChangeThemeRequested>(_onChangeThemeRequested);
   }
 
@@ -23,7 +23,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     emit(
       state.copyWith(
         status: Status.success,
-        currentThemeColor: event.themeColor,
+        currentTheme: event.theme,
       ),
     );
   }

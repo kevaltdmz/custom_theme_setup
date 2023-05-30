@@ -9,8 +9,8 @@ class ThemeEvent extends Equatable {
 
 class ChangeThemeRequested extends ThemeEvent {
   const ChangeThemeRequested({
-    required this.themeColor,
+    required this.theme,
   });
 
-  final Color themeColor;
+  final ThemeData theme;
 }

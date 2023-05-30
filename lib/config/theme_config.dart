@@ -1,3 +1,4 @@
+import 'package:custom_theme_setup/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -5,16 +6,11 @@ class AppTheme {
   const AppTheme._();
 
   static final lightTheme = _buildThemeFromColorScheme(
-    ColorScheme.fromSeed(
-      seedColor: const Color(0xFFFF5722),
-    ),
+    ColorScheme.fromSeed(seedColor: AppColors.lite),
   );
 
   static final darkTheme = _buildThemeFromColorScheme(
-    ColorScheme.fromSeed(
-      seedColor: const Color(0xFFFF5722),
-      brightness: Brightness.dark,
-    ),
+    ColorScheme.fromSeed(seedColor: AppColors.dark),
   );
 
   static ThemeData _buildThemeFromColorScheme(ColorScheme colorScheme) {

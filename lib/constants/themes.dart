@@ -18,7 +18,7 @@ class Themes {
   ];
 
   static changeTheme({required Color themeColor}) {
-    _buildThemeFromColorScheme(colorScheme: ColorScheme.fromSeed(seedColor: themeColor));
+    return _buildThemeFromColorScheme(colorScheme: ColorScheme.fromSeed(seedColor: themeColor));
   }
 
   static final darkTheme = _buildThemeFromColorScheme(
